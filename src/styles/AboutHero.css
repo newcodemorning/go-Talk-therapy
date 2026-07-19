@@ -5,9 +5,12 @@
     justify-content: center;
     align-items: center;
     border-radius: 0 0 40px 40px;
+    /* FIX: was width:95%; margin-left:40px — use symmetric centering */
     width: 95%;
-    margin-left: 40px;
-    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 80vh;
+    height: auto;
 }
 
 .about-content {
@@ -137,12 +140,18 @@
     background-color: #E0E0E0;
 }
 
-@media (max-width: 992px) {
+/* FIX: was 992px — aligned to 1024px to match navbar */
+@media (max-width: 1024px) {
     .about-hero-container {
         width: 100%;
         margin-left: 0;
+        margin-right: 0;
         padding: 0 40px;
-        height: 65vh;
+        /* FIX: was 65vh — use auto so content drives height */
+        min-height: 50vh;
+        height: auto;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 
     .about-profile-section {
@@ -183,7 +192,10 @@
 
 @media (max-width: 768px) {
     .about-hero-container {
-        height: 100vh;
+        /* FIX: was height:100vh — use auto so content drives height */
+        min-height: 60vh;
+        height: auto;
+        padding: 30px 20px;
     }
 
     .contact-button .primary-button {

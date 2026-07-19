@@ -7,12 +7,13 @@
     justify-content: center;
     align-items: center;
     border-radius: 0 0 40px 40px;
+    /* FIX: was width:95%; margin-left:40px — use symmetric centering */
     width: 95%;
-    margin-left: 40px;
+    margin-left: auto;
+    margin-right: auto;
     height: 50vh;
     background-color: #E9EFFD;
     position: relative;
-
 }
 
 .contact-header-section {
@@ -47,12 +48,14 @@
 }
 
 
-@media (max-width:1080px) {
+/* FIX: was 1080px — aligned to 1024px to match navbar */
+@media (max-width: 1024px) {
     .contact-hero-container {
         width: 100%;
         margin-left: 0;
+        margin-right: 0;
+        padding: 0 20px;
     }
-
 }
 
 @media (max-width: 768px) {

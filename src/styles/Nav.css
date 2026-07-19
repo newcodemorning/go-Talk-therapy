@@ -3,8 +3,10 @@
     background: #E9EFFD;
     padding: 20px 80px;
     margin-top: 30px;
+    /* FIX: was width:95%; margin-left:40px — replaced with symmetric centering */
     width: 95%;
-    margin-left: 40px;
+    margin-left: auto;
+    margin-right: auto;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
@@ -120,7 +122,10 @@
     flex-direction: column;
     gap: 4px;
     cursor: pointer;
-    color: #fff !important;
+    /* FIX: color was #fff which made icon invisible on light background */
+    color: #333;
+    z-index: 1001;
+    position: relative;
 }
 
 .burger-icon .line {
@@ -133,7 +138,7 @@
 .close-icon {
     display: none;
     position: absolute;
-    top: 15px;
+    top: 20px;
     right: 20px;
     font-size: 24px;
     background: none;
@@ -142,11 +147,13 @@
     color: #333;
 }
 
-@media (max-width: 1080px) {
+/* FIX: was 1080px — lowered to 1024px so laptop viewport gets the full-width reset */
+@media (max-width: 1024px) {
     .n-wrapper {
         width: 100%;
         padding: 0 40px;
         margin-left: 0;
+        margin-right: 0;
     }
 }
 
@@ -156,47 +163,15 @@
     }
 }
 
-
+/* FIX: merged the two duplicate @media (max-width: 768px) blocks into one */
 @media (max-width: 768px) {
-    .n-menu {
-        z-index: 99999;
-        position: fixed;
-        top: 0;
-        right: -500%;
-        width: 250px;
-        height: 100vh;
-        background-color: #fff;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        transition: right 0.3s ease;
-        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    .n-wrapper {
+        width: 100%;
+        padding: 0 20px;
+        margin-left: 0;
+        margin-right: 0;
     }
 
-    .n-btn {
-        position: static;
-        margin: 0;
-        padding: 7px 22px;
-    }
-
-    .n-menu.open {
-        right: 0;
-    }
-
-    .burger-icon {
-        display: flex;
-    }
-
-    .close-icon {
-        display: block;
-    }
-}
-
-
-
-
-@media (max-width: 768px) {
     .n-menu {
         z-index: 99999;
         position: fixed;
@@ -211,6 +186,12 @@
         gap: 20px;
         transition: right 0.3s ease-in-out;
         box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .n-btn {
+        position: static;
+        margin: 0;
+        padding: 7px 22px;
     }
 
     .n-menu.open {
@@ -254,5 +235,3 @@
         padding: 6px 10px;
     }
 }
-
-

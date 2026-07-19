@@ -268,8 +268,9 @@
 
 
 @media (max-width: 480px) {
+    /* FIX: was width:108% — caused definite horizontal overflow on mobile */
     .contact-form button {
-        width: 108%;
+        width: 100%;
     }
 
     .form-row {
@@ -278,5 +279,4 @@
     .form-row .input-container {
         width: 100%;
     }
-
 }
