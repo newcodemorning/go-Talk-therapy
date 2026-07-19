@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+/* scrollbar */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: #d1e5ff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--Linear, linear-gradient(96deg, #3A8EF6 -10.84%, #6F3AFA 196.74%));
+    border-radius: 10px;
+}

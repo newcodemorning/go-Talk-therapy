@@ -1,0 +1,72 @@
+.contact-hero-container {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0 90px 30px 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 40px 40px;
+    width: 95%;
+    margin-left: 40px;
+    height: 50vh;
+    background-color: #E9EFFD;
+    position: relative;
+
+}
+
+.contact-header-section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    padding: 20px;
+}
+
+.contact-header-section h1 {
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    background: var(--linear, linear-gradient(96deg, #3A8EF6 -10.84%, #6F3AFA 196.74%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-header-section p {
+    color: #717171;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 30px;
+}
+
+
+@media (max-width:1080px) {
+    .contact-hero-container {
+        width: 100%;
+        margin-left: 0;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .contact-header-section h1 {
+        font-size: 32px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .contact-header-section {
+        padding: 0;
+    }
+    .contact-header-section h1 {
+        font-size: 22px;
+    }    
+}

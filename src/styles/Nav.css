@@ -1,0 +1,258 @@
+.n-wrapper {
+    border-radius: 40px 40px 0 0;
+    background: #E9EFFD;
+    padding: 20px 80px;
+    margin-top: 30px;
+    width: 95%;
+    margin-left: 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.n-container {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding-top: 15px;
+}
+
+
+.n-logo {
+    width: 150px;
+    flex: 0 0 auto;
+}
+
+.n-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    justify-content: center;
+}
+
+.n-menu a {
+    color: var(--Body-text, #666680);
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    position: relative;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+
+.n-menu a.active {
+    color: #337ab7;
+    text-decoration: none;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    background: var(--linear, linear-gradient(96deg, #3A8EF6 -10.84%, #6F3AFA 196.74%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.n-menu a:hover {
+    background: var(--Linear, linear-gradient(96deg, #3A8EF6 -10.84%, #6F3AFA 196.74%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.n-menu a:hover::after {
+    width: 100%;
+}
+
+.n-btn {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 25px;
+    background-color: transparent;
+    margin-left: 50px;
+    flex: 0 0 auto;
+    color: var(--Primary-200, #524FD5);
+    text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    border-radius: 73px;
+    background: var(--Background---White, #FFF);
+    display: flex;
+    padding: 12px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    text-decoration: none;
+
+}
+
+.n-btn-active {
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    display: flex;
+    padding: 12px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 73px;
+    background: var(--Linear, linear-gradient(96deg, #3A8EF6 -10.84%, #6F3AFA 196.74%));
+    text-decoration: none;
+}
+
+
+.burger-icon {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    color: #fff !important;
+}
+
+.burger-icon .line {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    transition: transform 0.3s ease;
+}
+
+.close-icon {
+    display: none;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
+
+@media (max-width: 1080px) {
+    .n-wrapper {
+        width: 100%;
+        padding: 0 40px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .n-menu a {
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .n-menu {
+        z-index: 99999;
+        position: fixed;
+        top: 0;
+        right: -500%;
+        width: 250px;
+        height: 100vh;
+        background-color: #fff;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        transition: right 0.3s ease;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .n-btn {
+        position: static;
+        margin: 0;
+        padding: 7px 22px;
+    }
+
+    .n-menu.open {
+        right: 0;
+    }
+
+    .burger-icon {
+        display: flex;
+    }
+
+    .close-icon {
+        display: block;
+    }
+}
+
+
+
+
+@media (max-width: 768px) {
+    .n-menu {
+        z-index: 99999;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: #fff;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        transition: right 0.3s ease-in-out;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .n-menu.open {
+        right: 0;
+    }
+
+    .burger-icon {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        color: #000;
+        cursor: pointer;
+        z-index: 1001;
+        position: relative;
+    }
+
+    .burger-icon .line {
+        width: 25px;
+        height: 3px;
+        background-color: #333;
+        transition: transform 0.3s ease;
+    }
+
+    .close-icon {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #333;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .n-btn-active {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+}
+
+

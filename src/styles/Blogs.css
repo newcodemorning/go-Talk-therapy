@@ -1,0 +1,160 @@
+.health-section {
+  padding: 20px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.health-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.health-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.health-header .highlight {
+  color: #0070f3;
+}
+
+.health-header .see-all {
+  text-decoration: none;
+  color: #0070f3;
+  font-weight: bold;
+}
+
+.health-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.health-card {
+  width: calc(100% /3);
+  background: #fff;
+  overflow: hidden;
+}
+
+.health-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.category {
+  font-size: 14px;
+  color: #0070f3;
+  margin-bottom: 10px;
+}
+
+.category span {
+  color: #888;
+}
+
+.card-content h3 {
+  color: #111;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: -0.72px;
+  margin: 10px 0;
+}
+
+.card-content .description {
+  font-size: 14px;
+  color: #666;
+  margin: 10px 0;
+}
+
+.card-content .read-more {
+  text-decoration: none;
+  color: #0070f3;
+  font-weight: bold;
+}
+
+.slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 20px;
+  gap: 10px;
+}
+
+
+.blog-left-arrow,
+.blog-right-arrow {
+  background-color: black;
+  border: none;
+  color: #0070f3;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} 
+
+/*  */
+
+.blogs-arrow {
+  background-color: black;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+
+.blog-left-arrow{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.blog-right-arrow{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: #007bff;
+}
+
+
+@media (max-width:768px){
+  .health-card {
+    width:100%;
+  }
+}

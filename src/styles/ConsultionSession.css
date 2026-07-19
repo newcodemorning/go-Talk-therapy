@@ -1,0 +1,70 @@
+
+.consultation-section {
+    padding: 20px;
+    margin-bottom: 50px;
+  }
+  
+  .consultation-section h3 {
+    color: var(--Text-Primary, #181B32);
+    text-align: center;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 130%; 
+  }
+  
+  .consultation-section p {
+    color: var(--Body-text, #666680);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 190%;
+  }
+  
+  .email-signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .email-input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    width: 250px;
+    outline: none;
+    background-color: #F8FAFE;
+  }
+
+  .email-input:focus{
+    outline: none;
+  }
+  
+  .send-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: white;
+    background-color: #524FD5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .send-button:hover {
+    background-color: #524FD5;
+  }
+  
+
+
+  @media (max-width: 768px) {
+    .consultation-section h3 {
+      font-size: 34px;
+    }
+    .consultation-section p{
+      padding: 15px 0;
+    }
+  }
