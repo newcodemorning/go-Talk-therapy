@@ -8,8 +8,10 @@ const About = () => {
   return (
     <div>
         <Nav />
-        <AboutHero />
-        <FindOutMore />
+        <main id="main-content" tabIndex="-1">
+          <AboutHero />
+          <FindOutMore />
+        </main>
         <Footer />
     </div>
   )

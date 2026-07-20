@@ -19,7 +19,7 @@ const ServiceDetailLayout = ({
     <div className="service-detail-wrapper">
       <Nav />
 
-      <main className="service-detail-container">
+      <main id="main-content" tabIndex="-1" className="service-detail-container">
         {/* Orientation / Back Link */}
         <nav className="service-breadcrumb" aria-label="Breadcrumb navigation">
           <Link to="/services" className="breadcrumb-link">

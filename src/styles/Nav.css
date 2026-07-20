@@ -1,3 +1,29 @@
+/* ── Skip-to-main-content link ─────────────────────────────────────── */
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    z-index: 9999;
+    padding: 10px 24px;
+    border-radius: 0 0 10px 10px;
+    background: var(--color-primary-purple);
+    color: var(--color-white);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    /* Slide in on focus — not display:none / visibility:hidden */
+    transition: transform 0.2s ease;
+}
+
+.skip-link:focus-visible {
+    transform: translateX(-50%) translateY(0);
+    outline: 2px solid var(--color-accent-blue);
+    outline-offset: 2px;
+}
+
+/* ── Nav wrapper ────────────────────────────────────────────────────── */
 .n-wrapper {
     border-radius: 40px 40px 0 0;
     background: var(--color-surface-light);
@@ -154,6 +180,12 @@
 }
 
 .burger-icon {
+    /* Reset native <button> styling */
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    /* Existing visual styles */
     display: none;
     flex-direction: column;
     gap: 4px;
@@ -310,6 +342,12 @@
     }
 
     .burger-icon {
+        /* Reset native <button> styling */
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        /* Existing visual styles */
         display: flex;
         flex-direction: column;
         gap: 4px;
@@ -318,6 +356,12 @@
         z-index: 1001;
         position: relative;
         font-size: 24px;
+    }
+
+    .burger-icon:focus-visible {
+        outline: 2px solid var(--color-primary-purple);
+        outline-offset: 4px;
+        border-radius: 4px;
     }
 
     .burger-icon .line {

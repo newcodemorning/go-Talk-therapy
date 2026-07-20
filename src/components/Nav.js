@@ -29,6 +29,8 @@ const Nav = () => {
 
   return (
     <nav className="n-wrapper">
+      {/* Skip link — first focusable element on every page */}
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <div className="n-container">
         {/* Logo */}
         <Link to="/" aria-label="Go Talk Therapy Home">
@@ -36,7 +38,7 @@ const Nav = () => {
         </Link>
 
         {/* Navigation Links */}
-        <div className={`n-menu ${menuOpen ? "open" : ""}`}>
+        <div id="mobile-nav-menu" className={`n-menu ${menuOpen ? "open" : ""}`}>
           <button className="close-icon" onClick={toggleMenu} aria-label="Close menu">&times;</button>
 
           <Link
@@ -107,9 +109,16 @@ const Nav = () => {
         </Link>
 
         {/* Burger Icon */}
-        <div className="burger-icon" onClick={toggleMenu} aria-label="Open navigation menu" role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") toggleMenu(); }}>
-          <RxHamburgerMenu />
-        </div>
+        <button
+          type="button"
+          className="burger-icon"
+          onClick={toggleMenu}
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-nav-menu"
+        >
+          <RxHamburgerMenu aria-hidden="true" />
+        </button>
       </div>
     </nav>
   );

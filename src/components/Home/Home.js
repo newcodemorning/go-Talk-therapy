@@ -27,12 +27,14 @@ const Home = () => {
   return (
     <div>
         <Nav />
-        <Hero />
-        <Partners/>
-        <OurRating />
-        <Reviews />
-        <CommonQuestions />
-        <ConsultationSession/>
+        <main id="main-content" tabIndex="-1">
+          <Hero />
+          <Partners/>
+          <OurRating />
+          <Reviews />
+          <CommonQuestions />
+          <ConsultationSession/>
+        </main>
         <Footer />
     </div>
   )
