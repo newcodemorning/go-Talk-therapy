@@ -1,75 +1,78 @@
+/* ======================================
+   CONTACT HERO STYLES
+   ====================================== */
+
 .contact-hero-container {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 0 90px 30px 90px;
+    background-color: var(--color-surface-light);
+    padding: 60px 24px 80px 24px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 0 0 40px 40px;
-    /* FIX: was width:95%; margin-left:40px — use symmetric centering */
     width: 95%;
     margin-left: auto;
     margin-right: auto;
-    height: 50vh;
-    background-color: #E9EFFD;
-    position: relative;
+    min-height: auto;
+    height: auto;
+    box-sizing: border-box;
 }
 
 .contact-header-section {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     text-align: center;
-    z-index: 1;
-    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .contact-header-section h1 {
-    font-size: 40px;
-    font-style: normal;
+    font-size: 44px;
     font-weight: 700;
-    line-height: normal;
-    background: var(--linear, linear-gradient(96deg, #3A8EF6 -10.84%, #6F3AFA 196.74%));
+    line-height: 1.2;
+    background: linear-gradient(96deg, var(--color-accent-blue) -10.84%, var(--color-purple-accent) 196.74%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    margin: 0 0 12px 0;
 }
 
 .contact-header-section p {
-    color: #717171;
-    text-align: center;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin-top: 30px;
+    color: var(--color-text-muted);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
 }
 
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .contact-header-section h1 {
+        transition: none !important;
+    }
+}
 
-/* FIX: was 1080px — aligned to 1024px to match navbar */
+/* Responsive Breakpoints */
 @media (max-width: 1024px) {
     .contact-hero-container {
         width: 100%;
         margin-left: 0;
         margin-right: 0;
-        padding: 0 20px;
+        padding: 40px 20px 60px 20px;
     }
-}
 
-@media (max-width: 768px) {
     .contact-header-section h1 {
-        font-size: 32px;
+        font-size: 36px;
     }
 }
-
 
 @media (max-width: 480px) {
-    .contact-header-section {
-        padding: 0;
+    .contact-hero-container {
+        padding: 30px 16px 50px 16px;
     }
+
     .contact-header-section h1 {
-        font-size: 22px;
-    }    
+        font-size: 28px;
+    }
+
+    .contact-header-section p {
+        font-size: 15px;
+    }
 }
