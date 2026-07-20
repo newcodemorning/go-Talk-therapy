@@ -1,72 +1,94 @@
-import React from 'react'
+import React from "react";
 import "../../styles/CardLayout.css";
 
-import img1 from "../../assets/serv1.png"
-import img2 from "../../assets/image (4).png"
-import img3 from "../../assets/serv3.png"
-import img4 from "../../assets/serv4.png"
-import img5 from "../../assets/serv5.png"
-import { Link } from 'react-router-dom';
-
+import img1 from "../../assets/serv1.png";
+import img2 from "../../assets/image (4).png";
+import img3 from "../../assets/serv3.png";
+import img4 from "../../assets/serv4.png";
+import img5 from "../../assets/serv5.png";
+import { Link } from "react-router-dom";
+import { FiArrowRight } from "react-icons/fi";
 
 const ServicesCards = () => {
+  const cardData = [
+    {
+      id: "cbt",
+      title: "Cognitive Behavioural Therapy (CBT)",
+      description:
+        "Helps people problem-solve effectively while revealing the connection between beliefs, thoughts, feelings, and positive behavioral change.",
+      image: img1,
+      link: "/behavioral-therapy",
+      ctaText: "Explore CBT Therapy",
+    },
+    {
+      id: "emdr",
+      title: "Eye Movement Desensitisation And Reprocessing (EMDR)",
+      description:
+        "An evidence-based therapy specifically designed to help individuals process and recover from distressing events and deep trauma.",
+      image: img2,
+      link: "/eye-movement-desensitization",
+      ctaText: "Learn About EMDR",
+    },
+    {
+      id: "workplace",
+      title: "In the Workplace",
+      description:
+        "Fosters physical and mental well-being in professional environments with tailored consultation, work-life balance strategies, and team support.",
+      image: img3,
+      link: "/workplace",
+      ctaText: "View Workplace Services",
+    },
+    {
+      id: "counselling",
+      title: "Counselling & Psychotherapy",
+      description:
+        "Provides a compassionate, safe space to navigate life's struggles, personal challenges, and emotional difficulties with expert guidance.",
+      image: img4,
+      link: "/counselling-psychotherapy",
+      ctaText: "Explore Counselling",
+    },
+    {
+      id: "youth",
+      title: "Therapy for Children & Young People",
+      description:
+        "Specialized therapeutic support tailored for children and teenagers to develop resilience, manage anxiety, and foster healthy emotional growth.",
+      image: img5,
+      link: "/therapy-for-children-and-young-people",
+      ctaText: "Discover Youth Therapy",
+    },
+  ];
 
-    const cardData = [
-        {
-            title: "Cognitive Behavioural Therapy (CBT)",
-            description:
-                "Helps people problem-solve. CBT also reveals the relationship between beliefs, thoughts, and feelings, and the behaviors that follow.",
-            image: img1,
-            link: "/behavioral-therapy",
-        },
-        {
-            title: "Eye Movement Desensitisation And Reprocessing (EMDR)",
-            description:
-                "EMDR stands for Eye Movement Desensitisation and Reprocessing. It is a therapy used to help people recover from distressing events.",
-            image: img2,
-            link: "/eye-movement-desensitization",
-        },
-        {
-            title: "In the workplace",
-            description:
-                "Go Talk Therapy focuses on your mental and physical health in the workplace. We will provide a free consultation to identify your business ......",
-            image: img3,
-            link: "/workplace",
-        },
-        {
-            title: "Counselling & Psychotherapy",
-            description:
-                "We understand that life can be challenging at times, and everyone faces their own unique set of struggles and difficulties. Whether .....",
-            image: img4,
-            link: "/counselling-psychotherapy",
-        },
-        {
-            title: "Therapy for Children and young people",
-            description:
-                "Go Talk Therapy understands how difficult the pandemic has been for children. We work with children of all ages with a range of common issues;......",
-            image: img5,
-            link: "/therapy-for-children-and-young-people",
-        },
-    ];
+  return (
+    <div className="card-layout">
+      {cardData.map((card) => (
+        <Link
+          to={card.link}
+          key={card.id}
+          className="service-card"
+          aria-label={`${card.title} - ${card.ctaText}`}
+        >
+          <div className="service-card-image-wrapper">
+            <img
+              src={card.image}
+              alt={card.title}
+              className="service-card-img"
+              loading="lazy"
+            />
+          </div>
+          <div className="service-card-content">
+            <div>
+              <h3 className="service-card-title">{card.title}</h3>
+              <p className="service-card-description">{card.description}</p>
+            </div>
+            <div className="service-card-cta">
+              <span>{card.ctaText}</span>
+              <FiArrowRight className="cta-icon" aria-hidden="true" />
+            </div>
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
+};
 
-    return (
-        <div className="card-layout">
-            {cardData.map((card, index) => (
-                <Link to={card.link} key={index}>
-                <div className="blog__card" key={index}>
-                    <img src={card.image} alt={card.title} />
-                    <div className="card__content">
-                        <h3>{card.title}</h3>
-                        <p>{card.description}</p>
-                        <Link to={card.link}>Read More...</Link>
-                    </div>
-                </div>
-                </Link>
-            ))}
-        </div>
-    );
-
-}
-
-export default ServicesCards
-
+export default ServicesCards;
