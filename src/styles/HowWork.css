@@ -96,12 +96,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    padding: 30px 10px;
+    box-sizing: border-box;
 }
 
 .shop_cont .image-section img {
-    width: 325px;
-    height: 556px;
+    width: 100%;
+    max-width: 325px;
+    height: auto;
+    max-height: 556px;
+    object-fit: cover;
     transform: rotate(10deg);
     flex-shrink: 0;
     border-radius: 25px;
@@ -132,7 +136,8 @@
     }
 
     .shop_cont .image-section img {
-        max-width: 75%;
+        max-width: 240px;
+        height: auto;
     }
 }
 

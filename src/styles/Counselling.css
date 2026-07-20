@@ -29,7 +29,9 @@
 .section-image {
     width: 100%;
     border-radius: 25px;
-    height: 573px;
+    height: auto;
+    max-height: 573px;
+    object-fit: cover;
 }
 
 .content-wrapper {

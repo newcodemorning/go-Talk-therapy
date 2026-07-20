@@ -4,12 +4,11 @@
     width: 96%;
     margin: 0 auto;
     background-color: #f2f8ff;
-    border-radius: 15px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     border-radius: 46px;
     background: #E9EFFD;
     position: relative;
-
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 .ornament {
@@ -54,34 +53,45 @@
     font-size: 44px;
 }
 
-h2 {
+/* FIX: was bare `h2` selector — scoped to .testimonial-carousel h2 to prevent
+   leaking into every other page component that loads Reviews */
+.testimonial-carousel h2 {
     font-size: 24px;
     margin-bottom: 30px;
     color: #333;
-}
-
-.testimonial-card {
-    position: relative;
-    background: #fff;
-    border-radius: 15px;
-    padding: 30px;
-    margin: 0 auto 30px;
-    width: 633px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    height: 361px;
 }
 
 .testimonial-card-wrapper {
     position: relative;
     display: inline-block;
     margin: 0 auto 30px;
+    max-width: 100%;
+    width: 100%;
+}
+
+.testimonial-card {
+    position: relative;
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px 40px;
+    margin: 0 auto 30px;
+    /* FIX: was width:633px; height:361px — fixed px overflow on mobile */
+    width: 100%;
+    max-width: 633px;
+    min-height: 240px;
+    height: auto;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .testimonial-card-arrow {
     position: absolute;
     bottom: -10px;
     left: 50%;
-    
     transform: translateX(-50%);
     width: 0;
     height: 0;
@@ -91,6 +101,13 @@ h2 {
     z-index: 1;
 }
 
+.testimonial-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
 
 .testimonial-content h3 {
     font-size: 20px;
@@ -102,28 +119,36 @@ h2 {
     font-size: 14px;
     line-height: 1.6;
     color: #555;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 150px;
+    /* FIX: reduced from 150px to avoid arrow being taller than card */
+    font-size: 100px;
     cursor: pointer;
     color: #FFFFFF;
+    z-index: 5;
+    line-height: 1;
+    user-select: none;
 }
 
+/* Desktop: arrows sit just outside the card edges — visually balanced */
 .left-arrow {
-    left: -100px;
+    /* FIX: was -100px — reduced to -55px so they stay within the carousel container */
+    left: -55px;
 }
 
 .right-arrow {
-    right: -100px;
+    /* FIX: was -100px — reduced to -55px */
+    right: -55px;
 }
 
 .quote-icon {
@@ -176,6 +201,9 @@ h2 {
 }
 
 @media (max-width: 768px) {
+    .testimonial-carousel {
+        padding: 30px 15px;
+    }
 
     .ornament {
         display: none;
@@ -183,16 +211,24 @@ h2 {
 
     .testimonial-card {
         width: 100%;
+        max-width: 100%;
+        padding: 25px 35px;
     }
 
+    /* FIX: move arrows inside card edges so they cannot escape past the viewport */
     .left-arrow {
-        left: -60px;
+        left: 5px;
+        font-size: 60px;
     }
 
     .right-arrow {
-        right: -60px;
+        right: 5px;
+        font-size: 60px;
     }
 
+    .testimonial-content {
+        padding: 0 10px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -201,6 +237,6 @@ h2 {
     }
 
     .arrow {
-        font-size: 80px;
+        font-size: 50px;
     }
 }
