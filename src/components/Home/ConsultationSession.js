@@ -1,6 +1,6 @@
 import React from 'react'
 
-import '../../styles/ConsultionSession.css'
+import '../../styles/ConsultationSession.css'
 
 const ConsultationSession = () => {
   return (

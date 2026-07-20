@@ -4,14 +4,11 @@ import Home from "./components/Home/Home";
 import OurServices from "./components/OurServices/OurServices";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
-// import Blog from "./components/Blog/Blog";
-// import Career from "./components/Career/Career";
 import Service1 from "./components/OurServices/Service1";
 import Service2 from "./components/OurServices/Service2";
 import Service3 from "./components/OurServices/Service3";
 import Service4 from "./components/OurServices/Service4";
 import Service5 from "./components/OurServices/Service5";
-
 
 export default function App() {
   return (
@@ -21,8 +18,6 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<OurServices />} />
           <Route path="/testimonials" element={<Navigate to="/#testimonials" replace />} />
-          {/* <Route path="/faqs" element={<Career />} /> */}
-          {/* <Route path="/blog" element={<Blog />} /> */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/behavioral-therapy" element={<Service1 />} />
           <Route path="/eye-movement-desensitization" element={<Service2 />} />

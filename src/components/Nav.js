@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.svg";
 import "../styles/Nav.css";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaHome, FaInfoCircle, FaHandHoldingHeart, FaCommentAlt, FaEnvelope } from "react-icons/fa";
 
@@ -80,7 +80,7 @@ const Nav = () => {
           </Link>
         </div>
 
-        <NavLink to="/contact" className={location.pathname === "/contact" ? "n-btn-active" : "n-btn"}>Contact Me</NavLink>
+        <Link to="/contact" className={location.pathname === "/contact" ? "n-btn-active" : "n-btn"}>Contact Me</Link>
 
         {/* Burger Icon */}
         <div className="burger-icon" onClick={toggleMenu} aria-label="Open navigation menu">
