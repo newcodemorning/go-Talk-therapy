@@ -14,11 +14,24 @@ const Nav = () => {
 
   const location = useLocation();
 
+  const isHomeActive = location.pathname === "/" && !location.hash;
+  const isAboutActive = location.pathname === "/about";
+  const isServicesActive = [
+    "/services",
+    "/behavioral-therapy",
+    "/eye-movement-desensitization",
+    "/workplace",
+    "/counselling-psychotherapy",
+    "/therapy-for-children-and-young-people"
+  ].includes(location.pathname);
+  const isTestimonialsActive = location.pathname === "/" && location.hash === "#testimonials";
+  const isContactActive = location.pathname === "/contact";
+
   return (
     <nav className="n-wrapper">
       <div className="n-container">
         {/* Logo */}
-        <Link to="/">
+        <Link to="/" aria-label="Go Talk Therapy Home">
           <img src={logo} alt="logo" className="n-logo" />
         </Link>
 
@@ -28,34 +41,38 @@ const Nav = () => {
 
           <Link
             to="/"
-            className={location.pathname === "/" && !location.hash ? "active" : ""}
+            className={isHomeActive ? "active" : ""}
+            aria-current={isHomeActive ? "page" : undefined}
             onClick={() => setMenuOpen(false)}
           >
-            <FaHome className="nav-icon" />
+            <FaHome className="nav-icon" aria-hidden="true" />
             <span>Home</span>
           </Link>
 
           <Link
             to="/about"
-            className={location.pathname === "/about" ? "active" : ""}
+            className={isAboutActive ? "active" : ""}
+            aria-current={isAboutActive ? "page" : undefined}
             onClick={() => setMenuOpen(false)}
           >
-            <FaInfoCircle className="nav-icon" />
+            <FaInfoCircle className="nav-icon" aria-hidden="true" />
             <span>About Us</span>
           </Link>
 
           <Link
             to="/services"
-            className={location.pathname === "/services" ? "active" : ""}
+            className={isServicesActive ? "active" : ""}
+            aria-current={isServicesActive ? "page" : undefined}
             onClick={() => setMenuOpen(false)}
           >
-            <FaHandHoldingHeart className="nav-icon" />
+            <FaHandHoldingHeart className="nav-icon" aria-hidden="true" />
             <span>Our Services</span>
           </Link>
 
           <Link
             to="/#testimonials"
-            className={location.pathname === "/" && location.hash === "#testimonials" ? "active" : ""}
+            className={isTestimonialsActive ? "active" : ""}
+            aria-current={isTestimonialsActive ? "page" : undefined}
             onClick={() => {
               setMenuOpen(false);
               if (location.pathname === "/") {
@@ -66,24 +83,31 @@ const Nav = () => {
               }
             }}
           >
-            <FaCommentAlt className="nav-icon" />
+            <FaCommentAlt className="nav-icon" aria-hidden="true" />
             <span>Testimonials</span>
           </Link>
 
           <Link
             to="/contact"
-            className={`mobile-only-link ${location.pathname === "/contact" ? "active" : ""}`}
+            className={`mobile-only-link ${isContactActive ? "active" : ""}`}
+            aria-current={isContactActive ? "page" : undefined}
             onClick={() => setMenuOpen(false)}
           >
-            <FaEnvelope className="nav-icon" />
+            <FaEnvelope className="nav-icon" aria-hidden="true" />
             <span>Contact</span>
           </Link>
         </div>
 
-        <Link to="/contact" className={location.pathname === "/contact" ? "n-btn-active" : "n-btn"}>Contact Me</Link>
+        <Link
+          to="/contact"
+          className={isContactActive ? "n-btn-active" : "n-btn"}
+          aria-current={isContactActive ? "page" : undefined}
+        >
+          Contact Me
+        </Link>
 
         {/* Burger Icon */}
-        <div className="burger-icon" onClick={toggleMenu} aria-label="Open navigation menu">
+        <div className="burger-icon" onClick={toggleMenu} aria-label="Open navigation menu" role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") toggleMenu(); }}>
           <RxHamburgerMenu />
         </div>
       </div>
