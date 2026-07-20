@@ -5,7 +5,7 @@
     margin: 0 auto;
     background-color: #f2f8ff;
     border-radius: 46px;
-    background: #E9EFFD;
+    background: var(--color-surface-light);
     position: relative;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
@@ -90,7 +90,7 @@
 .testimonial-carousel h2 {
     font-size: 24px;
     margin-bottom: 30px;
-    color: #333;
+    color: var(--color-text-dark);
 }
 
 .testimonial-card-wrapper {
@@ -104,7 +104,7 @@
 
 .testimonial-card {
     position: relative;
-    background: #fff;
+    background: var(--color-white);
     border-radius: 15px;
     padding: 30px 40px;
     margin: 0 auto 30px;
@@ -129,7 +129,7 @@
     height: 0;
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
-    border-top: 70px solid #fff;
+    border-top: 70px solid var(--color-white);
     z-index: 1;
 }
 
@@ -172,7 +172,7 @@
     transform: translateY(-50%);
     font-size: 100px;
     cursor: pointer;
-    color: #FFFFFF;
+    color: var(--color-white);
     z-index: 5;
     line-height: 1;
     user-select: none;
@@ -182,7 +182,7 @@
 }
 
 .arrow:focus-visible {
-    outline: 2px solid #524FD5;
+    outline: 2px solid var(--color-primary-purple);
     outline-offset: 4px;
     border-radius: 8px;
 }
@@ -198,7 +198,7 @@
 
 .quote-icon {
     font-size: 28px;
-    color: #524FD5;
+    color: var(--color-primary-purple);
     opacity: 0.35;
     margin-bottom: 12px;
 }
@@ -249,7 +249,7 @@
 }
 
 .avatar-slot:focus-visible {
-    outline: 2px solid #524FD5;
+    outline: 2px solid var(--color-primary-purple);
     outline-offset: 2px;
     border-radius: 8px;
 }
@@ -275,14 +275,14 @@
 }
 
 .avatar:focus-visible {
-    outline: 2px solid #524FD5;
+    outline: 2px solid var(--color-primary-purple);
     outline-offset: 4px;
     border-radius: 50%;
 }
 
 /* Active (centred) avatar */
 .active-avatar {
-    color: #524FD5;
+    color: var(--color-primary-purple);
     filter: drop-shadow(0 4px 10px rgba(53, 148, 255, 0.3));
     transform: scale(1.6);
 }

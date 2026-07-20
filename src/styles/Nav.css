@@ -1,6 +1,6 @@
 .n-wrapper {
     border-radius: 40px 40px 0 0;
-    background: #E9EFFD;
+    background: var(--color-surface-light);
     padding: 20px 80px;
     margin-top: 30px;
     /* FIX: was width:95%; margin-left:40px — replaced with symmetric centering */
@@ -34,7 +34,7 @@
 }
 
 .n-menu a {
-    color: var(--Body-text, #666680);
+    color: var(--Body-text, var(--color-text-muted));
     font-feature-settings: 'liga' off, 'clig' off;
     font-size: 16px;
     font-style: normal;
@@ -53,14 +53,14 @@
     font-style: normal;
     font-weight: 700;
     line-height: 24px;
-    background: var(--linear, linear-gradient(96deg, #3A8EF6 -10.84%, #6F3AFA 196.74%));
+    background: var(--linear, linear-gradient(96deg, var(--color-accent-blue) -10.84%, var(--color-purple-accent) 196.74%));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .n-menu a:hover {
-    background: var(--Linear, linear-gradient(96deg, #3A8EF6 -10.84%, #6F3AFA 196.74%));
+    background: var(--Linear, linear-gradient(96deg, var(--color-accent-blue) -10.84%, var(--color-purple-accent) 196.74%));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -79,7 +79,7 @@
     background-color: transparent;
     margin-left: 50px;
     flex: 0 0 auto;
-    color: var(--Primary-200, #524FD5);
+    color: var(--Primary-200, var(--color-primary-purple));
     text-align: center;
     font-feature-settings: 'liga' off, 'clig' off;
     font-size: 14px;
@@ -87,7 +87,7 @@
     font-weight: 700;
     line-height: 28px;
     border-radius: 73px;
-    background: var(--Background---White, #FFF);
+    background: var(--Background---White, var(--color-white));
     display: flex;
     padding: 12px 32px;
     justify-content: center;
@@ -99,7 +99,7 @@
 }
 
 .n-btn-active {
-    color: #FFF;
+    color: var(--color-white);
     text-align: center;
     font-feature-settings: 'liga' off, 'clig' off;
     font-size: 14px;
@@ -112,7 +112,7 @@
     align-items: center;
     gap: 10px;
     border-radius: 73px;
-    background: var(--Linear, linear-gradient(96deg, #3A8EF6 -10.84%, #6F3AFA 196.74%));
+    background: var(--Linear, linear-gradient(96deg, var(--color-accent-blue) -10.84%, var(--color-purple-accent) 196.74%));
     text-decoration: none;
 }
 
@@ -122,8 +122,8 @@
     flex-direction: column;
     gap: 4px;
     cursor: pointer;
-    /* FIX: color was #fff which made icon invisible on light background */
-    color: #333;
+    /* FIX: color was var(--color-white) which made icon invisible on light background */
+    color: var(--color-text-dark);
     z-index: 1001;
     position: relative;
 }
@@ -131,7 +131,7 @@
 .burger-icon .line {
     width: 25px;
     height: 3px;
-    background-color: #333;
+    background-color: var(--color-text-dark);
     transition: transform 0.3s ease;
 }
 
@@ -144,7 +144,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: #333;
+    color: var(--color-text-dark);
 }
 
 .nav-icon {
@@ -176,7 +176,7 @@
         display: flex;
         align-items: center;
         font-size: 18px;
-        color: #524FD5;
+        color: var(--color-primary-purple);
         flex-shrink: 0;
     }
 
@@ -199,7 +199,7 @@
         width: 280px;
         max-width: 85vw;
         height: 100vh;
-        background-color: #ffffff;
+        background-color: var(--color-white);
         flex-direction: column;
         justify-content: flex-start;
         align-items: stretch;
@@ -230,29 +230,29 @@
 
     .n-menu a:hover,
     .n-menu a:focus {
-        background-color: #f2f6ff;
+        background-color: var(--color-hover-bg);
         background-clip: border-box;
         -webkit-background-clip: border-box;
-        color: #3A8EF6;
+        color: var(--color-accent-blue);
         -webkit-text-fill-color: currentColor !important;
     }
 
     .n-menu a:focus-visible {
-        outline: 2px solid #2F80ED;
+        outline: 2px solid var(--color-action-blue);
         outline-offset: 2px;
     }
 
     .n-menu a.active {
-        background: #E9EFFD;
+        background: var(--color-surface-light);
         background-clip: border-box;
         -webkit-background-clip: border-box;
-        color: #2F80ED;
+        color: var(--color-action-blue);
         -webkit-text-fill-color: currentColor !important;
         font-weight: 700;
     }
 
     .n-menu a.active .nav-icon {
-        color: #2F80ED;
+        color: var(--color-action-blue);
     }
 
     .n-btn {
@@ -269,7 +269,7 @@
         display: flex;
         flex-direction: column;
         gap: 4px;
-        color: #333;
+        color: var(--color-text-dark);
         cursor: pointer;
         z-index: 1001;
         position: relative;
@@ -279,7 +279,7 @@
     .burger-icon .line {
         width: 25px;
         height: 3px;
-        background-color: #333;
+        background-color: var(--color-text-dark);
         transition: transform 0.3s ease;
     }
 
@@ -291,13 +291,13 @@
         top: 20px;
         right: 20px;
         font-size: 26px;
-        background: #f2f6ff;
+        background: var(--color-hover-bg);
         border: none;
         border-radius: 50%;
         width: 38px;
         height: 38px;
         cursor: pointer;
-        color: #333;
+        color: var(--color-text-dark);
         transition: background-color 0.2s ease;
     }
 
