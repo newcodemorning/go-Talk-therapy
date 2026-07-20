@@ -31,12 +31,10 @@ const Footer = () => {
           <div className="footer-col sub-col">
             <h4>Company Info</h4>
             <ul>
-              <li><Link to="/">Careers</Link></li>
-              <li><Link to="/">Teachers</Link></li>
-              <li><Link to="/">Support</Link>
-              </li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/services">Our Services</Link></li>
               <li><Link to="/contact">Contact</Link></li>
-
             </ul>
           </div>
 

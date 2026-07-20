@@ -1,12 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Home from "./components/Home/Home";
 import OurServices from "./components/OurServices/OurServices";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 // import Blog from "./components/Blog/Blog";
 // import Career from "./components/Career/Career";
-import Testimonials from "./components/Testimonials/Testimonials";
 import Service1 from "./components/OurServices/Service1";
 import Service2 from "./components/OurServices/Service2";
 import Service3 from "./components/OurServices/Service3";
@@ -21,7 +20,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<OurServices />} />
-          <Route path="/testimonials" element={<Testimonials />} />
+          <Route path="/testimonials" element={<Navigate to="/#testimonials" replace />} />
           {/* <Route path="/faqs" element={<Career />} /> */}
           {/* <Route path="/blog" element={<Blog />} /> */}
           <Route path="/contact" element={<Contact />} />
