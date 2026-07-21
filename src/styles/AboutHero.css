@@ -1,13 +1,19 @@
+/* ======================================
+   ABOUT HERO COMPOSITION & CARDS
+   ====================================== */
+
 .about-hero-container {
-    background-color: #E9EFFD;
-    padding: 0 90px 30px 90px;
+    background-color: var(--color-surface-light);
+    padding: 20px 90px 60px 90px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 0 0 40px 40px;
     width: 95%;
-    margin-left: 40px;
-    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: auto;
+    height: auto;
 }
 
 .about-content {
@@ -17,94 +23,198 @@
     justify-content: space-between;
     max-width: 1200px;
     width: 100%;
+    gap: 60px;
 }
 
+/* --- Left Column: Header & Copy --- */
 .about-header-section {
     text-align: left;
-    width: 50%;
+    flex: 1;
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .about-header-section h1 {
-    color: #3C3B3B;
-    font-feature-settings: 'liga' off, 'clig' off;
-    font-size: 48px;
-    font-style: normal;
+    color: var(--color-text-dark);
+    font-size: 44px;
     font-weight: 500;
-    line-height: 60px;
+    line-height: 1.2;
+    margin: 0;
 }
-
-.about-header-section p {
-    color: var(--grey, #666680);
-    font-feature-settings: 'liga' off, 'clig' off;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 150%;
-    margin-top: 20px;
-    width: 82%;
-}
-
 
 .about-header-section .highlight {
-    font-feature-settings: 'liga' off, 'clig' off;
-    font-size: 20px;
-    font-style: normal;
+    font-size: 18px;
     font-weight: 600;
-    line-height: 150%;
-    background: linear-gradient(96deg, #3A8EF6 -10.84%, #6F3AFA 196.74%);
+    line-height: 1.4;
+    background: linear-gradient(96deg, var(--color-accent-blue) -10.84%, var(--color-purple-accent) 196.74%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: block;
 }
 
-.hero-card.top-right-about {
-    right: -50px;
-    top: 200px;
+.about-header-section p {
+    color: var(--color-text-muted);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0;
+    width: 100%;
 }
 
-.about-avatar-group {
-    display: flex;
+.about-contact-button {
+    margin-top: 10px;
 }
 
-.hero-card.about-bottom {
-    bottom: 0;
+.about-primary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--color-action-blue);
+    color: var(--color-white);
+    border: none;
+    border-radius: 73px;
+    padding: 14px 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(47, 128, 237, 0.25);
 }
 
+.about-primary-button:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+    box-shadow: 0 6px 18px rgba(47, 128, 237, 0.35);
+}
 
+.about-primary-button .button-icon {
+    font-size: 16px;
+}
+
+.about-primary-button:focus-visible {
+    outline: 2px solid var(--color-primary-purple);
+    outline-offset: 3px;
+}
+
+/* --- Right Column: Portrait & Floating Cards --- */
 .about-profile-section {
     flex: 1;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    max-width: 480px;
+    width: 100%;
 }
 
-.contact-button .primary-button {
+/* Background Warm Accent Shape */
+.background-shape.orange {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    border-radius: 50px;
+    opacity: 0.35;
+    background: #FFD6B0;
+    width: 100%;
+    max-width: 420px;
+    height: 440px;
+    transform: rotate(-4deg);
+    flex-shrink: 0;
+}
+
+.profile-image {
+    position: relative;
+    z-index: 2;
+    border-radius: 36px;
+    width: 100%;
+    max-width: 420px;
+    height: 440px;
+    transform: rotate(3deg);
+    object-fit: cover;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    background: #FFD6B0;
+    display: block;
+}
+
+/* Floating Cards Layout */
+.hero-card.top-right-about {
+    position: absolute;
+    z-index: 4;
+    top: 35px;
+    right: -25px;
+    background: var(--color-white);
+    border-radius: 18px;
+    padding: 12px 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.about-avatar-group {
     display: flex;
     align-items: center;
-    gap: 8px;
+}
 
-    background-color: #2F80ED;
-    color: #fff;
-    border: none;
-    border-radius: 73px;
-    padding: 15px 32px;
-    cursor: pointer;
-    font-size: 14px;
+.about-avatar-group .avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid var(--color-white);
+    margin-right: -8px;
+    object-fit: cover;
+}
+
+.about-avatar-group .more-avatars {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--color-hover-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-primary-purple);
+    font-size: 12px;
     font-weight: 700;
-    width: 30%;
-    margin-top: 20px;
+    border: 2px solid var(--color-white);
+    margin-left: 2px;
+}
 
+.trust-label {
+    color: var(--color-text-muted);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Bottom Stats Card */
+.hero-card.about-bottom {
+    position: absolute;
+    z-index: 4;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-white);
+    border-radius: 22px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    padding: 0;
+    width: auto;
 }
 
 .about-stats-card {
     display: flex;
-    padding: 20px 40px;
+    padding: 16px 28px;
     align-items: center;
     justify-content: center;
-    gap: 40px;
-    width: fit-content;
+    gap: 24px;
+    white-space: nowrap;
 }
 
 .stat-block {
@@ -115,84 +225,205 @@
 }
 
 .stat-number {
-    font-size: 36px !important;
+    font-size: 24px;
     font-weight: 700;
-    background: linear-gradient(96deg, #3A8EF6 -10.84%, #6F3AFA 196.74%);
+    line-height: 1.2;
+    background: linear-gradient(96deg, var(--color-accent-blue) -10.84%, var(--color-purple-accent) 196.74%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    padding: 10px;
+    padding: 0;
 }
 
 .stat-description {
-    margin-top: 5px;
-    font-size: 14px;
-    color: #666680;
+    margin-top: 3px;
+    font-size: 12px;
+    color: var(--color-text-muted);
     font-weight: 500;
 }
 
 .divider {
-    height: 40px;
+    height: 36px;
     width: 1px;
-    background-color: #E0E0E0;
+    background-color: #E2EBFD;
+    flex-shrink: 0;
 }
 
-@media (max-width: 992px) {
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .about-primary-button,
+    .profile-image,
+    .background-shape {
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+/* ======================================
+   RESPONSIVE BREAKPOINTS
+   ====================================== */
+
+/* Laptop / Intermediate (1081px - 1280px) */
+@media (max-width: 1280px) {
     .about-hero-container {
-        width: 100%;
-        margin-left: 0;
-        padding: 0 40px;
-        height: 65vh;
+        padding: 20px 40px 50px 40px;
     }
 
-    .about-profile-section {
-        display: none;
-    }
-
-    .about-header-section,
-    .about-header-section p {
-        width: 100%;
-    }
-
-    .about-header-section p {
-        font-size: 12px;
-        margin-top: 10px;
-        width: 100%;
-    }
-
-    .primary-button {
-        margin: 0;
-        padding: 10px;
+    .about-content {
+        gap: 40px;
     }
 
     .about-header-section h1 {
-        font-size: 25px;
-        line-height: 28px;
-        margin-bottom: 18px;
+        font-size: 38px;
+    }
+
+    .profile-image,
+    .background-shape.orange {
+        max-width: 360px;
+        height: 390px;
+    }
+
+    .hero-card.top-right-about {
+        right: -10px;
+        top: 20px;
+    }
+
+    .stat-number {
+        font-size: 22px;
+    }
+}
+
+/* Tablet Layout (769px - 1080px) */
+@media (max-width: 1080px) {
+    .about-hero-container {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 30px 24px 40px 24px;
+        border-radius: 0 0 30px 30px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 36px;
+    }
+
+    .about-header-section {
+        max-width: 100%;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-header-section h1 {
+        font-size: 32px;
     }
 
     .about-header-section .highlight {
+        font-size: 16px;
+    }
+
+    .about-header-section p {
+        font-size: 14px;
         text-align: center;
     }
 
-    .content {
-        text-align: center;
-        width: 90%;
+    .about-profile-section {
+        max-width: 420px;
+        margin: 0 auto;
+        gap: 16px;
+    }
+
+    .profile-image {
+        max-width: 320px;
+        height: 350px;
+        transform: none;
+        margin: 0 auto;
+    }
+
+    .background-shape.orange {
+        display: none;
+    }
+
+    /* Transition floating cards to normal flow stack on tablet */
+    .hero-card.top-right-about {
+        position: static;
+        transform: none;
+        align-items: center;
+        margin-top: -10px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .hero-card.about-bottom {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 360px;
+        margin-top: 8px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .about-stats-card {
+        padding: 14px 20px;
+        gap: 16px;
     }
 }
 
-@media (max-width: 768px) {
-    .about-hero-container {
-        height: 100vh;
-    }
-
-    .contact-button .primary-button {
-        width: 40%;
-    }
-}
-
+/* Mobile Devices (480px and below) */
 @media (max-width: 480px) {
-    .contact-button .primary-button {
-        width: 50%;
+    .about-hero-container {
+        padding: 20px 16px 30px 16px;
+    }
+
+    .about-header-section h1 {
+        font-size: 26px;
+    }
+
+    .about-header-section .highlight {
+        font-size: 15px;
+    }
+
+    .about-header-section p {
+        font-size: 14px;
+    }
+
+    .profile-image {
+        max-width: 270px;
+        height: 300px;
+    }
+
+    .hero-card.about-bottom {
+        max-width: 100%;
+    }
+
+    .about-stats-card {
+        padding: 12px 14px;
+        gap: 12px;
+    }
+
+    .stat-number {
+        font-size: 18px;
+    }
+
+    .stat-description {
+        font-size: 11px;
+    }
+}
+
+/* Small Mobile (360px and below) */
+@media (max-width: 360px) {
+    .about-header-section h1 {
+        font-size: 22px;
+    }
+
+    .about-primary-button {
+        font-size: 13px;
+        padding: 12px 22px;
+    }
+
+    .profile-image {
+        max-width: 240px;
+        height: 270px;
     }
 }

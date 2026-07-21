@@ -1,3 +1,16 @@
+:root {
+  /* Brand & Theme Color Tokens */
+  --color-primary-purple: #524FD5;
+  --color-action-blue: #2F80ED;
+  --color-accent-blue: #3A8EF6;
+  --color-purple-accent: #6F3AFA;
+  --color-surface-light: #E9EFFD;
+  --color-text-dark: #333333;
+  --color-text-muted: #666680;
+  --color-hover-bg: #f2f6ff;
+  --color-white: #ffffff;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

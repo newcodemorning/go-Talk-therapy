@@ -47,8 +47,10 @@
 }
 
 .image-content img {
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
 }
 
 @media (max-width: 992px) {
@@ -90,6 +92,7 @@
     width: 50%;
     border-radius: 10px;
     height: 350px;
+    object-fit: cover;
 }
 
 .down2 ul {
@@ -118,5 +121,7 @@
     }
     .down-image {
         width: 100%;
+        height: auto;
+        max-height: 350px;
     }
 }

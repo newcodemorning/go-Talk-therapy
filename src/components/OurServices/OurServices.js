@@ -10,16 +10,18 @@ import ServicesCards from './ServicesCards'
 
 const OurServices = () => {
   return (
-    <>
+    <div>
       <Nav />
-      <ServicesHero />
-      {/* <HowWork /> */}
-      <ServicesCards />
-      <AboutSection />
-      <Reviews />
-      <ContactSection />
+      <main id="main-content" tabIndex="-1">
+        <ServicesHero />
+        {/* <HowWork /> */}
+        <ServicesCards />
+        <AboutSection />
+        <Reviews />
+        <ContactSection />
+      </main>
       <Footer />
-    </>
+    </div>
 
   )
 }

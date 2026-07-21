@@ -74,10 +74,12 @@
 }
 
 .faq-question-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    /* FIX: was white-space:nowrap — caused confirmed horizontal overflow at 1024px */
+    /* Allow question text to wrap naturally; ellipsis no longer needed */
     flex: 1;
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 .faq-icon {
     font-size: 18px;

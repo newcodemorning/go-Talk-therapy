@@ -1,69 +1,195 @@
+/* ======================================
+   OUR SERVICES CARDS REDESIGN
+   ====================================== */
+
 .card-layout {
     max-width: 1200px;
-    margin: 50px auto;
+    margin: 40px auto 60px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); 
-    gap: 50px; 
-    padding: 20px; 
-  }
-  
-  .blog__card {
-    background-color: #fff;
-    border-radius: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+/* Individual Card Container (Full Card Link) */
+.service-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white);
+    border-radius: 24px;
+    border: 1px solid rgba(82, 79, 213, 0.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
     overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; 
-  }
-  
-  .blog__card:hover {
-    transform: translateY(-5px); 
-  }
-  
-  /* Image in the card */
-  .blog__card img {
-    width: 100%;
-    height: 360px;
-    border-radius: 16px;
-    object-fit: cover; 
-  }
-  
-  .card-content {
-    padding: 15px;
-  }
-  
-  .card__content h3 {
-    font-size: 1.25rem;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .card__content p {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.5;
-    margin-bottom: 15px;
-  }
-  
-  /* Read More link */
-  .card__content a {
-    font-size: 0.9rem;
-    color: #007bff;
     text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .card__content a:hover {
-    text-decoration: underline; 
-  }
-  
-  @media (max-width: 768px) {
-    .card-layout {
-      grid-template-columns: 1fr; 
-      grid-auto-columns: 1fr;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(82, 79, 213, 0.12);
+    border-color: rgba(82, 79, 213, 0.22);
+}
+
+.service-card:focus-visible {
+    outline: 2px solid var(--color-primary-purple);
+    outline-offset: 4px;
+    border-radius: 24px;
+}
+
+/* Image Aspect Ratio & Hover Scale */
+.service-card-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: var(--color-surface-light);
+}
+
+.service-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover .service-card-img {
+    transform: scale(1.04);
+}
+
+/* Card Content Area */
+.service-card-content {
+    padding: 26px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.service-card-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--color-text-dark);
+    margin: 0 0 10px 0;
+    transition: color 0.2s ease;
+}
+
+.service-card:hover .service-card-title {
+    color: var(--color-primary-purple);
+}
+
+.service-card-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin: 0 0 20px 0;
+}
+
+/* Card Action / CTA Bar */
+.service-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-primary-purple);
+    margin-top: auto;
+    transition: gap 0.25s ease, color 0.25s ease;
+}
+
+.service-card:hover .service-card-cta {
+    color: var(--color-action-blue);
+    gap: 12px;
+}
+
+.cta-icon {
+    font-size: 16px;
+    transition: transform 0.25s ease;
+}
+
+.service-card:hover .cta-icon {
+    transform: translateX(4px);
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .service-card,
+    .service-card-img,
+    .service-card-cta,
+    .cta-icon {
+        transition: none !important;
+        transform: none !important;
     }
-    .blog__card{
-      width: 100%; 
-      margin: 20px auto;
+}
+
+/* ======================================
+   RESPONSIVE BREAKPOINTS
+   ====================================== */
+
+@media (max-width: 1024px) {
+    .card-layout {
+        gap: 28px;
+        padding: 0 20px;
+        margin: 30px auto 40px;
     }
 
-  }
-  
+    .service-card-content {
+        padding: 22px 24px;
+    }
+
+    .service-card-title {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .service-card {
+        border-radius: 20px;
+    }
+
+    .service-card-content {
+        padding: 20px;
+    }
+
+    .service-card-title {
+        font-size: 18px;
+    }
+
+    .service-card-description {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-layout {
+        padding: 0 16px;
+        gap: 20px;
+    }
+
+    .service-card-image-wrapper {
+        aspect-ratio: 16 / 10;
+    }
+
+    .service-card-content {
+        padding: 18px;
+    }
+
+    .service-card-title {
+        font-size: 17px;
+    }
+
+    .service-card-description {
+        font-size: 13px;
+    }
+}

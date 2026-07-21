@@ -19,32 +19,27 @@ function Hero() {
         //   data-aos-easing="ease-in-sine"
         >
           <h1>
-            Change your mind  
+            Change your mind<br />
             Change your life
           </h1>
           <p>
-          Discover a personalised approach to mental health care designed  <br />
-          to help you thrive, one session at a time.
+            Discover a personalised approach to mental health care designed to help you thrive, one session at a time.
           </p>
           <div className="buttons">
 
-            <button className="primary__button">
+            <NavLink to="/contact" className="primary__button">
               Start Your Journey Today
-            </button>
-            <NavLink to="/services" className="secondary__button" as="button">
+            </NavLink>
+            <NavLink to="/services" className="secondary__button">
               Explore Our Services
             </NavLink>
           </div>
         </div>
 
-        <div className="profile-section"
-        // data-aos="fade-left"
-        // data-aos-offset="300"
-        // data-aos-easing="ease-in-sine">
-        >
+        <div className="profile-section">
           <div className="background-shape orange"></div>
 
-          <img src={profileImage} alt="" className="profile-image" />
+          <img src={profileImage} alt="Rachel Profile" className="profile-image" />
 
           <div className="cards">
             {/* Floating Cards */}
@@ -52,12 +47,11 @@ function Hero() {
               <div className="card-profile">
                 <img
                   src={user}
-                  alt="Jack Cooper"
+                  alt="Client Review"
                   className="small-profile"
                 />
               </div>
               <div className="float-card-content">
-                <span className="float-card-name">Jack Cooper</span>
                 <span className="float-card-review">My therapy sessions have truly transformed my life!</span>
               </div>
             </div>

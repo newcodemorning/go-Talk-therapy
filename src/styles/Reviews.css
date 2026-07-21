@@ -4,93 +4,149 @@
     width: 96%;
     margin: 0 auto;
     background-color: #f2f8ff;
-    border-radius: 15px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     border-radius: 46px;
-    background: #E9EFFD;
+    background: var(--color-surface-light);
     position: relative;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
 
+@keyframes floatVertical1 {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-16px);
+    }
+}
+
+@keyframes floatVertical2 {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(14px);
+    }
 }
 
 .ornament {
     position: absolute;
     color: rgba(82, 79, 213, 0.2);
     pointer-events: none;
+    z-index: 0;
 }
 
+/* Ornament positions — framed closer to central content with percentage offsets */
 .one {
-    left: 400px;
-    bottom: 150px;
+    left: 12%;
+    bottom: 80px;
     font-size: 56px;
+    animation: floatVertical1 3.2s ease-in-out infinite;
 }
 
 .two {
-    left: 250px;
+    left: 15%;
     top: 70px;
     font-size: 28px;
+    animation: floatVertical2 2.8s ease-in-out infinite 0.4s;
 }
 
 .three {
-    left: 200px;
-    top: 40px;
+    left: 24%;
+    top: 35px;
     font-size: 40px;
+    animation: floatVertical1 3.5s ease-in-out infinite 0.9s;
 }
 
 .four {
-    right: 150px;
+    right: 15%;
     top: 60px;
     font-size: 48px;
+    animation: floatVertical2 3.0s ease-in-out infinite 1.3s;
 }
 
 .four-bottom {
-    right: 150px;
-    bottom: 120px;
+    right: 12%;
+    bottom: 80px;
     font-size: 32px;
+    animation: floatVertical1 2.9s ease-in-out infinite 0.6s;
 }
 
 .five {
-    right: 100px;
-    bottom: 80px;
+    right: 24%;
+    top: 25px;
     font-size: 44px;
+    animation: floatVertical2 3.4s ease-in-out infinite 1.1s;
 }
 
-h2 {
+@media (prefers-reduced-motion: reduce) {
+    .ornament {
+        animation: none !important;
+    }
+}
+
+/* FIX: scoped to .testimonial-carousel h2 to prevent
+   leaking into every other page component that loads Reviews */
+.testimonial-carousel h2 {
     font-size: 24px;
     margin-bottom: 30px;
-    color: #333;
-}
-
-.testimonial-card {
-    position: relative;
-    background: #fff;
-    border-radius: 15px;
-    padding: 30px;
-    margin: 0 auto 30px;
-    width: 633px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    height: 361px;
+    color: var(--color-text-dark);
 }
 
 .testimonial-card-wrapper {
     position: relative;
     display: inline-block;
     margin: 0 auto 30px;
+    max-width: 100%;
+    width: 100%;
+    z-index: 2;
+}
+
+.testimonial-card {
+    position: relative;
+    background: var(--color-white);
+    border-radius: 15px;
+    padding: 30px 40px;
+    margin: 0 auto 30px;
+    width: 100%;
+    max-width: 633px;
+    min-height: 240px;
+    height: auto;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .testimonial-card-arrow {
     position: absolute;
     bottom: -10px;
     left: 50%;
-    
     transform: translateX(-50%);
     width: 0;
     height: 0;
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
-    border-top: 70px solid #fff;
+    border-top: 70px solid var(--color-white);
     z-index: 1;
 }
 
+.testimonial-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* Fade transition for content swap */
+    transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.testimonial-content.card-fading {
+    opacity: 0;
+    transform: translateY(6px);
+}
 
 .testimonial-content h3 {
     font-size: 20px;
@@ -102,80 +158,139 @@ h2 {
     font-size: 14px;
     line-height: 1.6;
     color: #555;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 150px;
+    font-size: 100px;
     cursor: pointer;
-    color: #FFFFFF;
+    color: var(--color-white);
+    z-index: 5;
+    line-height: 1;
+    user-select: none;
+    background: none;
+    border: none;
+    padding: 0;
 }
 
+.arrow:focus-visible {
+    outline: 2px solid var(--color-primary-purple);
+    outline-offset: 4px;
+    border-radius: 8px;
+}
+
+/* Desktop: arrows sit just outside the card edges — visually balanced */
 .left-arrow {
-    left: -100px;
+    left: -55px;
 }
 
 .right-arrow {
-    right: -100px;
+    right: -55px;
 }
 
 .quote-icon {
     font-size: 28px;
-    color: #524FD5;
+    color: var(--color-primary-purple);
     opacity: 0.35;
     margin-bottom: 12px;
 }
 
 .profile {
     margin-top: 20px;
+    position: relative;
+    z-index: 2;
 }
 
-.avatars {
+/* ======================================
+   AVATAR SLIDING TRACK CAROUSEL
+   ====================================== */
+
+/* Clipping viewport — 5 slots wide, tall enough for scaled active avatar */
+.avatar-viewport {
+    /* Responsive slot width: avatar-size + gap-between-centres */
+    --avatar-size: 50px;
+    --slot-w: 80px;           /* 50px avatar + 30px gap */
+    /* Active avatar at scale(1.6) = 80px visual; 18px padding each side prevents clipping */
+    --vp-pad: 18px;
+    width: calc(5 * var(--slot-w));   /* 400px on desktop */
+    max-width: 100%;
+    overflow: hidden;     /* contained overflow, prevents internal scrollbar */
+    margin: 0 auto;
+    position: relative;
+    padding-top: var(--vp-pad);
+    padding-bottom: var(--vp-pad);
+}
+
+/* Sliding flex row — transform set via inline style */
+.avatar-track {
+    display: flex;
+    will-change: transform;
+    align-items: center; /* keep all avatars vertically centred in the row */
+}
+
+/* Each slot is one slot-width wide; avatar is centred inside */
+.avatar-slot {
+    width: var(--slot-w);
+    flex-shrink: 0;
     display: flex;
     justify-content: center;
-    gap: 30px;
     align-items: center;
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
+    cursor: pointer;
+    /* Slot itself does not clip the scaled active avatar */
+    overflow: visible;
 }
 
+.avatar-slot:focus-visible {
+    outline: 2px solid var(--color-primary-purple);
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+
+/* Avatar icon — transitions synchronised with track slide (450ms) */
 .avatar {
-    width: 50px;
-    height: 50px;
-    font-size: 50px;
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    font-size: var(--avatar-size);
     color: #8B9FD4;
     cursor: pointer;
-    transition: all 0.3s ease;
+    display: block;
     flex-shrink: 0;
+    transition:
+        color  450ms cubic-bezier(0.4, 0, 0.2, 1),
+        transform 450ms cubic-bezier(0.4, 0, 0.2, 1),
+        filter 450ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Disable avatar transitions during the invisible snap frame */
+.avatar-track.snapping .avatar {
+    transition: none !important;
+}
+
+.avatar:focus-visible {
+    outline: 2px solid var(--color-primary-purple);
+    outline-offset: 4px;
+    border-radius: 50%;
+}
+
+/* Active (centred) avatar */
 .active-avatar {
-    font-size: 55px;
-    color: #524FD5;
+    color: var(--color-primary-purple);
     filter: drop-shadow(0 4px 10px rgba(53, 148, 255, 0.3));
-    z-index: 2;
-    transition: all 0.3s ease;
-    position: relative;
     transform: scale(1.6);
 }
 
-.profile-name {
-    font-size: 16px;
-    margin-top: 20px;
-    font-weight: bold;
-    color: #666680;
-}
-
 @media (max-width: 768px) {
+    .testimonial-carousel {
+        padding: 30px 15px;
+    }
 
     .ornament {
         display: none;
@@ -183,16 +298,23 @@ h2 {
 
     .testimonial-card {
         width: 100%;
+        max-width: 100%;
+        padding: 25px 35px;
     }
 
     .left-arrow {
-        left: -60px;
+        left: 5px;
+        font-size: 60px;
     }
 
     .right-arrow {
-        right: -60px;
+        right: 5px;
+        font-size: 60px;
     }
 
+    .testimonial-content {
+        padding: 0 10px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -201,6 +323,30 @@ h2 {
     }
 
     .arrow {
-        font-size: 80px;
+        font-size: 50px;
+    }
+
+    /* Responsive avatar track: slot shrinks to keep 5 avatars visible */
+    .avatar-viewport {
+        --avatar-size: 40px;
+        --slot-w: 58px;       /* 40px avatar + 18px gap */
+        --vp-pad: 14px;       /* active scale(1.4)=56px */
+    }
+
+    .active-avatar {
+        transform: scale(1.4);
+    }
+}
+
+@media (max-width: 360px) {
+    /* At 360px: 5 slots × 50px = 250px — fits in ~316px available width */
+    .avatar-viewport {
+        --avatar-size: 36px;
+        --slot-w: 50px;       /* 36px avatar + 14px gap */
+        --vp-pad: 12px;        /* active scale(1.3)=47px */
+    }
+
+    .active-avatar {
+        transform: scale(1.3);
     }
 }
