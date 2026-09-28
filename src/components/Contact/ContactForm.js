@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { db } from '../../firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import '../../styles/ContactForm.css';
@@ -8,7 +9,16 @@ import mailIcon from '../../assets/ic_sharp-email.png';
 import rachelImg from '../../assets/Rachelcontact.png';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
+const subjectOptions = [
+  { id: 'subj-general', label: 'General Inquiry', value: 'General Inquiry' },
+  { id: 'subj-individual', label: 'Individual Therapy', value: 'Individual Therapy' },
+  { id: 'subj-workplace', label: 'Workplace Support', value: 'Workplace Support' },
+  { id: 'subj-youth', label: 'Youth Therapy', value: 'Youth Therapy' },
+];
+
 const ContactForm = () => {
+  const location = useLocation();
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -19,6 +29,21 @@ const ContactForm = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const subjectParam = searchParams.get('subject');
+    if (subjectParam) {
+      const matchedOption = subjectOptions.find(
+        (opt) => opt.value.toLowerCase() === subjectParam.toLowerCase() || opt.id === subjectParam
+      );
+      const targetSubject = matchedOption ? matchedOption.value : subjectParam;
+      setFormData((prev) => ({
+        ...prev,
+        subject: targetSubject,
+      }));
+    }
+  }, [location.search]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -39,12 +64,6 @@ const ContactForm = () => {
 
   const handleClose = () => setIsSubmitted(false);
 
-  const subjectOptions = [
-    { id: 'subj-general', label: 'General Inquiry', value: 'General Inquiry' },
-    { id: 'subj-individual', label: 'Individual Therapy', value: 'Individual Therapy' },
-    { id: 'subj-workplace', label: 'Workplace Support', value: 'Workplace Support' },
-    { id: 'subj-youth', label: 'Youth Therapy', value: 'Youth Therapy' },
-  ];
 
   return (
     <div className="contact-container">

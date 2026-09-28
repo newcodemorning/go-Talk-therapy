@@ -9,6 +9,7 @@ import OurRating from './OurRating'
 import Reviews from './Reviews'
 import CommonQuestions from './CommonQuestions'
 import ConsultationSession from './ConsultationSession'
+import WorkplacePromoCard from './WorkplacePromoCard'
 
 const Home = () => {
   const location = useLocation();
@@ -35,6 +36,7 @@ const Home = () => {
           <CommonQuestions />
           <ConsultationSession/>
         </main>
+        <WorkplacePromoCard />
         <Footer />
     </div>
   )

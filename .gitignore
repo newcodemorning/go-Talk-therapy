@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Local client recordings and recording scripts
+/client-demo/
+/scratch/
